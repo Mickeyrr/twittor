@@ -16,6 +16,8 @@ func Manejadores() {
 	// router -> sera para el manejo de las rutas de acceso al sistema
 	router := mux.NewRouter()
 	router.HandleFunc("/registro", middlew.CheckBD(routers.Registro)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckBD(routers.Login)).Methods("POST")
+	router.HandleFunc("/verperfil", middlew.CheckBD(middlew.ValidateJWT(routers.VerPerfil))).Methods("GET")
 
 	// Si no existe una variable de entorno con el puerto se le asigna por defualt el puerto 8080
 	PORT := os.Getenv("PORT")
