@@ -21,6 +21,7 @@ func Manejadores() {
 	router.HandleFunc("/modificarPerfil", middlew.CheckBD(middlew.ValidateJWT(routers.ModificarPerfil))).Methods("PUT")
 	router.HandleFunc("/tweet", middlew.CheckBD(middlew.ValidateJWT(routers.GrabarTweet))).Methods("POST")
 	router.HandleFunc("/leertweets", middlew.CheckBD(middlew.ValidateJWT(routers.LeerTweets))).Methods("GET")
+	router.HandleFunc("/eliminartweet", middlew.CheckBD(middlew.ValidateJWT(routers.DeleteTweet))).Methods("DELETE")
 
 	// Si no existe una variable de entorno con el puerto se le asigna por defualt el puerto 8080
 	PORT := os.Getenv("PORT")
