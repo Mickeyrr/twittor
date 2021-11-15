@@ -11,7 +11,7 @@ import (
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("content-type", "application/json")
+	w.Header().Add("Content-Type", "application/json")
 
 	var t models.Usuario
 
